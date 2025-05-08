@@ -138,27 +138,58 @@ class MainWindowUI(QMainWindow):
                           timeout=3000)
             return None
 
+
     def display_image(self, label, image):
+        """
+        Display an image on a QLabel with fixed size of 400x400
+        
+        Args:
+            label (QLabel): The label widget to display the image on
+            image (numpy.ndarray): The image to display
+        """
         if image is None:
+            label.clear()
+            label.setText("No image to display")
             return
             
-        if len(image.shape) == 3:
-            rgb_image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
-        else:
-            rgb_image = cv2.cvtColor(image, cv2.COLOR_GRAY2RGB)
+        try:
+            # Convert image format
+            if len(image.shape) == 3:
+                rgb_image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
+            else:
+                rgb_image = cv2.cvtColor(image, cv2.COLOR_GRAY2RGB)
+                
+            # Set fixed size for label
+            FIXED_SIZE = 600
+            label.setFixedSize(FIXED_SIZE, FIXED_SIZE)
             
-        height, width = rgb_image.shape[:2]
-        
-        q_img = QImage(rgb_image.data, width, height, width * 3, QImage.Format.Format_RGB888)
-        
-        pixmap = QPixmap.fromImage(q_img)
-        
-        pixmap = pixmap.scaled(label.width(), label.height(), 
-                              Qt.AspectRatioMode.KeepAspectRatio,
-                              Qt.TransformationMode.SmoothTransformation)
-        
-        label.setPixmap(pixmap)
-        label.setAlignment(Qt.AlignmentFlag.AlignCenter)
+            # Create QImage
+            height, width = rgb_image.shape[:2]
+            q_img = QImage(rgb_image.data, width, height, width * 3, QImage.Format.Format_RGB888)
+            
+            # Create pixmap and scale it to fixed size
+            pixmap = QPixmap.fromImage(q_img)
+            pixmap = pixmap.scaled(FIXED_SIZE, FIXED_SIZE, 
+                                Qt.AspectRatioMode.KeepAspectRatio,
+                                Qt.TransformationMode.SmoothTransformation)
+            
+            # Calculate padding to center the image
+            x_padding = (FIXED_SIZE - pixmap.width()) // 2
+            y_padding = (FIXED_SIZE - pixmap.height()) // 2
+            
+            # Create a new label with background
+            label.setStyleSheet("QLabel { background-color: #252536; border: 1px solid #3d3d5c; }")
+            
+            # Set pixmap to label with padding
+            label.setPixmap(pixmap)
+            label.setAlignment(Qt.AlignmentFlag.AlignCenter)
+            
+            logging.info(f"Image displayed in fixed size {FIXED_SIZE}x{FIXED_SIZE}")
+                        
+        except Exception as e:
+            logging.error(f"Error in display_image: {str(e)}")
+            label.clear()
+            label.setText("Error displaying image")
 
     def update_recognition_display(self, image_data):
         self.display_recognition_image(image_data)

@@ -29,10 +29,6 @@ class FaceDetection:
         faces = face_cascade.detectMultiScale(gray, 1.1, 4)
         
         for (x, y, w, h) in faces:
-            cv2.rectangle(image, (x, y), (x+w, y+h), (0, 255, 0), 2)
-        
-        # Display the image in a window
-        cv2.imshow('Face Detection', image)
-        cv2.waitKey(1)  # Update window with small delay
+            cv2.rectangle(image, (x, y), (x+w, y+h), (0, 255, 0), 4)
         
         pub.sendMessage(Topics.FACE_DETECTION_COMPLETED, image_data=image)
