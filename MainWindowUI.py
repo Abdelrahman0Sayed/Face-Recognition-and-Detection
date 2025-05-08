@@ -24,31 +24,24 @@ class MainWindowUI(QMainWindow):
         self.ui.showMaximized()
         self.ui.setWindowTitle("Face Recognition and Detection")
         
-        # Initialize variables
         self.current_image = None
-        self.current_tab = "recognition"  # Default tab
+        self.current_tab = "recognition"  
         
-        # Setup connections and subscriptions
         self.setup_connections()
         self.setup_subscriptions()
 
 
     def setup_connections(self):
-        # Tab change connection
         self.tabWidget.currentChanged.connect(self.on_tab_changed)
-        
-        # Recognition tab connections
         self.btnUploadRecognition.clicked.connect(self.handle_recognition_upload)
         self.btnROCRecognition.clicked.connect(self.handle_recognition_rocgnition)
-        
-        # Detection tab connections
         self.btnUploadDetection.clicked.connect(self.handle_detection_upload)
         self.btnROCDetection.clicked.connect(self.handle_detection_roc)
 
 
     def setup_subscriptions(self):
-        pub.subscribe(self.update_recognition_display, Topics.UPDATE_RECOGNITION_DISPLAY)
-        pub.subscribe(self.update_detection_display, Topics.UPDATE_DETECTION_DISPLAY)
+        pub.subscribe(self.display_recognition_image, Topics.UPDATE_RECOGNITION_DISPLAY)
+        pub.subscribe(self.display_detection_image, Topics.UPDATE_DETECTION_DISPLAY)
         pub.subscribe(self.update_status_bar, Topics.UPDATE_STATUS_BAR)
         pub.subscribe(self.display_detection_results, Topics.FACE_DETECTION_COMPLETED)
         pub.subscribe(self.display_recognition_results, Topics.FACE_RECOGNITION_COMPLETED)
@@ -96,7 +89,6 @@ class MainWindowUI(QMainWindow):
                 image = self.load_image(file_path)
                 if image is not None:
                     self.current_image = image
-                    self.display_detection_image(self.current_image)
                     pub.sendMessage(Topics.UPLOAD_IMAGE_DETECTION,
                                   image_path=file_path,
                                   image_data=image)
@@ -191,12 +183,6 @@ class MainWindowUI(QMainWindow):
             label.clear()
             label.setText("Error displaying image")
 
-    def update_recognition_display(self, image_data):
-        self.display_recognition_image(image_data)
-
-
-    def update_detection_display(self, image_data):
-        self.display_detection_image(image_data)
 
     def update_status_bar(self, message, timeout=3000):
         self.statusbar.showMessage(message, timeout)
@@ -216,7 +202,6 @@ class MainWindowUI(QMainWindow):
     
     
     def display_recognition_image(self, image_data=None):
-
         if image_data is None:
             image_data = self.current_image
             
