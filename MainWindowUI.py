@@ -50,6 +50,8 @@ class MainWindowUI(QMainWindow):
         pub.subscribe(self.update_recognition_display, Topics.UPDATE_RECOGNITION_DISPLAY)
         pub.subscribe(self.update_detection_display, Topics.UPDATE_DETECTION_DISPLAY)
         pub.subscribe(self.update_status_bar, Topics.UPDATE_STATUS_BAR)
+        pub.subscribe(self.display_detection_results, Topics.FACE_DETECTION_COMPLETED)
+        pub.subscribe(self.display_recognition_results, Topics.FACE_RECOGNITION_COMPLETED)
 
 
     def on_tab_changed(self, index):
@@ -218,3 +220,44 @@ class MainWindowUI(QMainWindow):
             logging.error(f"Error displaying detection image: {str(e)}")
             self.imageDisplayDetection.clear()
             self.imageDisplayDetection.setText("Error displaying image")
+
+
+    def display_detection_results(self, image_data):
+        try:
+            if image_data is not None:
+                self.display_image(self.imageDisplayDetection, image_data)
+                logging.info("Detection results displayed successfully")
+                pub.sendMessage(Topics.UPDATE_STATUS_BAR,
+                              message="Detection results updated",
+                              timeout=3000)
+            else:
+                logging.warning("No detection results to display")
+                pub.sendMessage(Topics.UPDATE_STATUS_BAR,
+                              message="No detection results available",
+                              timeout=3000)
+        except Exception as e:
+            logging.error(f"Error displaying detection results: {str(e)}")
+            pub.sendMessage(Topics.UPDATE_STATUS_BAR,
+                          message="Error displaying detection results",
+                          timeout=3000)
+    
+
+    def display_recognition_results(self, image_data):
+        try:
+            if image_data is not None:
+                self.display_image(self.labelRecognitionResults, image_data)
+                logging.info("Recognition results displayed successfully")
+                pub.sendMessage(Topics.UPDATE_STATUS_BAR,
+                                message="Recognition results updated",
+                                timeout=3000)
+            else:
+                logging.warning("No recognition results to display")
+                pub.sendMessage(Topics.UPDATE_STATUS_BAR,
+                                message="No recognition results available",
+                                timeout=3000)
+        except Exception as e:
+            logging.error(f"Error displaying recognition results: {str(e)}")
+            pub.sendMessage(Topics.UPDATE_STATUS_BAR,
+                            message="Error displaying recognition results",
+                            timeout=3000)
+    

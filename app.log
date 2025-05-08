@@ -1,6 +1,77 @@
-2025-05-08 21:56:49,761 - INFO - Tab changed to face detection
-2025-05-08 21:56:53,216 - INFO - Attempting to upload image from: C:/Users/dasda/OneDrive/Pictures/back2 (1).png
-2025-05-08 21:56:53,291 - INFO - Successfully loaded image: C:/Users/dasda/OneDrive/Pictures/back2 (1).png
-2025-05-08 21:56:53,315 - INFO - Detection image displayed successfully
-2025-05-08 21:56:53,315 - INFO - Applying Face Detection on the image
-2025-05-08 21:56:53,318 - INFO - Face detection applied
+2025-05-08 22:31:08,467 - INFO - Tab changed to face detection
+2025-05-08 22:31:19,111 - INFO - Attempting to upload image from: C:/Users/dasda/OneDrive/Pictures/Camera Roll/WIN_20230623_01_08_55_Pro.jpg
+2025-05-08 22:31:19,125 - INFO - Successfully loaded image: C:/Users/dasda/OneDrive/Pictures/Camera Roll/WIN_20230623_01_08_55_Pro.jpg
+2025-05-08 22:31:19,143 - INFO - Detection image displayed successfully
+2025-05-08 22:31:19,143 - INFO - Applying Face Detection on the image
+2025-05-08 22:31:19,145 - INFO - Face detection applied
+2025-05-08 22:31:20,848 - INFO - Detection results displayed successfully
+2025-05-08 22:31:50,994 - INFO - Attempting to upload image from: C:/Users/dasda/OneDrive/Pictures/peakpx.jpg
+2025-05-08 22:31:51,004 - INFO - Successfully loaded image: C:/Users/dasda/OneDrive/Pictures/peakpx.jpg
+2025-05-08 22:31:51,012 - INFO - Detection image displayed successfully
+2025-05-08 22:31:51,013 - INFO - Applying Face Detection on the image
+2025-05-08 22:31:51,014 - INFO - Face detection applied
+2025-05-08 22:31:51,149 - INFO - Detection results displayed successfully
+2025-05-08 22:32:03,597 - INFO - Attempting to upload image from: C:/Users/dasda/OneDrive/Pictures/Screenshots/Screenshot 2025-01-16 205645.png
+2025-05-08 22:32:03,603 - INFO - Successfully loaded image: C:/Users/dasda/OneDrive/Pictures/Screenshots/Screenshot 2025-01-16 205645.png
+2025-05-08 22:32:03,605 - INFO - Detection image displayed successfully
+2025-05-08 22:32:03,605 - INFO - Applying Face Detection on the image
+2025-05-08 22:32:03,606 - INFO - Face detection applied
+2025-05-08 22:32:03,691 - INFO - Detection results displayed successfully
+2025-05-08 22:32:18,588 - INFO - Generating ROC curve for detection
+2025-05-08 22:32:28,378 - INFO - Attempting to upload image from: C:/Users/dasda/OneDrive/Pictures/anime.jpg
+2025-05-08 22:32:28,587 - INFO - Successfully loaded image: C:/Users/dasda/OneDrive/Pictures/anime.jpg
+2025-05-08 22:32:28,612 - INFO - Detection image displayed successfully
+2025-05-08 22:32:28,612 - INFO - Applying Face Detection on the image
+2025-05-08 22:32:28,614 - INFO - Face detection applied
+2025-05-08 22:32:29,261 - INFO - Detection results displayed successfully
+2025-05-08 22:32:43,654 - INFO - Attempting to upload image from: D:/pictures/Picsart_24-07-20_08-10-20-044.jpg
+2025-05-08 22:32:43,674 - INFO - Successfully loaded image: D:/pictures/Picsart_24-07-20_08-10-20-044.jpg
+2025-05-08 22:32:43,683 - INFO - Detection image displayed successfully
+2025-05-08 22:32:43,683 - INFO - Applying Face Detection on the image
+2025-05-08 22:32:43,697 - INFO - Face detection applied
+2025-05-08 22:32:43,996 - INFO - Detection results displayed successfully
+2025-05-08 22:32:53,688 - INFO - Attempting to upload image from: D:/pictures/FB_IMG_1649244744767.jpg
+2025-05-08 22:32:53,701 - INFO - Successfully loaded image: D:/pictures/FB_IMG_1649244744767.jpg
+2025-05-08 22:32:53,706 - INFO - Detection image displayed successfully
+2025-05-08 22:32:53,707 - INFO - Applying Face Detection on the image
+2025-05-08 22:32:53,709 - INFO - Face detection applied
+2025-05-08 22:32:53,864 - INFO - Detection results displayed successfully
+2025-05-08 22:33:16,391 - INFO - Attempting to upload image from: D:/pictures/Ebrahim El-Sayed.png
+2025-05-08 22:33:16,393 - INFO - Successfully loaded image: D:/pictures/Ebrahim El-Sayed.png
+2025-05-08 22:33:16,399 - INFO - Detection image displayed successfully
+2025-05-08 22:33:16,399 - INFO - Applying Face Detection on the image
+2025-05-08 22:33:16,402 - INFO - Face detection applied
+2025-05-08 22:33:16,462 - INFO - Detection results displayed successfully
+2025-05-08 22:33:22,024 - INFO - Attempting to upload image from: D:/pictures/Background.jpg
+2025-05-08 22:33:22,032 - INFO - Successfully loaded image: D:/pictures/Background.jpg
+2025-05-08 22:33:22,037 - INFO - Detection image displayed successfully
+2025-05-08 22:33:22,037 - INFO - Applying Face Detection on the image
+2025-05-08 22:33:22,039 - INFO - Face detection applied
+2025-05-08 22:33:22,193 - INFO - Detection results displayed successfully
+2025-05-08 22:33:29,947 - INFO - Attempting to upload image from: D:/pictures/nurse1.png
+2025-05-08 22:33:29,950 - INFO - Successfully loaded image: D:/pictures/nurse1.png
+2025-05-08 22:33:29,959 - INFO - Detection image displayed successfully
+2025-05-08 22:33:29,959 - INFO - Applying Face Detection on the image
+2025-05-08 22:33:29,961 - INFO - Face detection applied
+2025-05-08 22:33:30,036 - INFO - Detection results displayed successfully
+2025-05-08 22:33:35,820 - INFO - Attempting to upload image from: D:/pictures/sayed.jpg
+2025-05-08 22:33:35,821 - ERROR - Error loading image D:/pictures/sayed.jpg: Failed to load image
+2025-05-08 22:33:42,101 - INFO - Attempting to upload image from: D:/pictures/youssef Ahmed.png
+2025-05-08 22:33:42,104 - INFO - Successfully loaded image: D:/pictures/youssef Ahmed.png
+2025-05-08 22:33:42,116 - INFO - Detection image displayed successfully
+2025-05-08 22:33:42,116 - INFO - Applying Face Detection on the image
+2025-05-08 22:33:42,119 - INFO - Face detection applied
+2025-05-08 22:33:42,190 - INFO - Detection results displayed successfully
+2025-05-08 22:34:14,206 - INFO - Attempting to upload image from: D:/pictures/download.jpeg
+2025-05-08 22:34:14,208 - INFO - Successfully loaded image: D:/pictures/download.jpeg
+2025-05-08 22:34:14,215 - INFO - Detection image displayed successfully
+2025-05-08 22:34:14,216 - INFO - Applying Face Detection on the image
+2025-05-08 22:34:14,218 - INFO - Face detection applied
+2025-05-08 22:34:14,282 - INFO - Detection results displayed successfully
+2025-05-08 22:34:19,618 - INFO - Generating ROC curve for detection
+2025-05-08 22:36:05,661 - INFO - Attempting to upload image from: D:/pictures/anime_wallpaper_2.jpeg
+2025-05-08 22:36:05,669 - INFO - Successfully loaded image: D:/pictures/anime_wallpaper_2.jpeg
+2025-05-08 22:36:05,674 - INFO - Detection image displayed successfully
+2025-05-08 22:36:05,674 - INFO - Applying Face Detection on the image
+2025-05-08 22:36:05,676 - INFO - Face detection applied
+2025-05-08 22:36:05,772 - INFO - Detection results displayed successfully
