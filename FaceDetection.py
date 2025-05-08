@@ -22,4 +22,5 @@ class FaceDetection:
         loop.run_in_executor(executor, self.apply_face_detection, image)
 
     def apply_face_detection(self, image):
-        pass
+        print(image.shape)
+        

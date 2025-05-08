@@ -74,6 +74,7 @@ class MainWindowUI(QMainWindow):
                     pub.sendMessage(Topics.UPDATE_STATUS_BAR,
                                   message="Image loaded for recognition",
                                   timeout=3000)
+                    
                 else:
                     pub.sendMessage(Topics.UPDATE_STATUS_BAR,
                                   message="Failed to load image",
@@ -100,6 +101,8 @@ class MainWindowUI(QMainWindow):
                     pub.sendMessage(Topics.UPDATE_STATUS_BAR,
                                   message="Image loaded for detection",
                                   timeout=3000)
+                    pub.sendMessage(Topics.APPLY_DETECTION, image=image)
+                    logging.info("Face detection applied")
                 else:
                     pub.sendMessage(Topics.UPDATE_STATUS_BAR,
                                   message="Failed to load image",
