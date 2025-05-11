@@ -69,7 +69,7 @@ class MainWindowUI(QMainWindow):
                     pub.sendMessage(Topics.UPDATE_STATUS_BAR,
                                   message="Image loaded for recognition",
                                   timeout=3000)
-                    
+                    pub.sendMessage(Topics.APPLY_RECOGNITION, image=image)
                 else:
                     pub.sendMessage(Topics.UPDATE_STATUS_BAR,
                                   message="Failed to load image",
