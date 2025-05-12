@@ -37,6 +37,7 @@ class MainWindowUI(QMainWindow):
         self.btnROCRecognition.clicked.connect(self.handle_recognition_rocgnition)
         self.btnUploadDetection.clicked.connect(self.handle_detection_upload)
         self.btnROCDetection.clicked.connect(self.handle_detection_roc)
+        self.btnROCRecognition.clicked.connect(self.handle_recognition_roc)
 
 
     def setup_subscriptions(self):
@@ -132,47 +133,33 @@ class MainWindowUI(QMainWindow):
 
 
     def display_image(self, label, image):
-        """
-        Display an image on a QLabel with fixed size of 400x400
-        
-        Args:
-            label (QLabel): The label widget to display the image on
-            image (numpy.ndarray): The image to display
-        """
         if image is None:
             label.clear()
             label.setText("No image to display")
             return
             
         try:
-            # Convert image format
             if len(image.shape) == 3:
                 rgb_image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
             else:
                 rgb_image = cv2.cvtColor(image, cv2.COLOR_GRAY2RGB)
                 
-            # Set fixed size for label
             FIXED_SIZE = 600
             label.setFixedSize(FIXED_SIZE, FIXED_SIZE)
             
-            # Create QImage
             height, width = rgb_image.shape[:2]
             q_img = QImage(rgb_image.data, width, height, width * 3, QImage.Format.Format_RGB888)
             
-            # Create pixmap and scale it to fixed size
             pixmap = QPixmap.fromImage(q_img)
             pixmap = pixmap.scaled(FIXED_SIZE, FIXED_SIZE, 
                                 Qt.AspectRatioMode.KeepAspectRatio,
                                 Qt.TransformationMode.SmoothTransformation)
             
-            # Calculate padding to center the image
             x_padding = (FIXED_SIZE - pixmap.width()) // 2
             y_padding = (FIXED_SIZE - pixmap.height()) // 2
             
-            # Create a new label with background
             label.setStyleSheet("QLabel { background-color: #252536; border: 1px solid #3d3d5c; }")
             
-            # Set pixmap to label with padding
             label.setPixmap(pixmap)
             label.setAlignment(Qt.AlignmentFlag.AlignCenter)
             
@@ -199,7 +186,14 @@ class MainWindowUI(QMainWindow):
             pub.sendMessage(Topics.SHOW_ROC_DETECTION)
             logging.info("Generating ROC curve for detection")
 
-    
+    def handle_recognition_roc(self):
+        if self.current_image is not None:
+            pub.sendMessage(Topics.SHOW_ROC_RECOGNITION)
+            logging.info("Generating ROC curve for recognition")
+        else:
+            pub.sendMessage(Topics.UPDATE_STATUS_BAR,
+                          message="No image loaded for ROC curve",
+                          timeout=3000)
     
     def display_recognition_image(self, image_data=None):
         if image_data is None:

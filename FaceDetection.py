@@ -24,10 +24,8 @@ class FaceDetection:
     def apply_face_detection(self, image):
         print("Applying face detection...")
         
-        # Use the extract_faces method to get faces
         faces_with_locations = self.extract_faces(image)
         
-        # Draw rectangles around the faces
         for _, (x, y, w, h) in faces_with_locations:
             cv2.rectangle(image, (x, y), (x+w, y+h), (0, 255, 0), 4)
         
@@ -35,16 +33,6 @@ class FaceDetection:
 
     @staticmethod
     def extract_faces(image):
-        """
-        Extract faces from an image and return them as a list
-        
-        Args:
-            image: Input image (BGR format)
-            
-        Returns:
-            List of tuples containing (face_image, face_location)
-            where face_location is (x, y, w, h)
-        """
         faces_list = []
         gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
         
