@@ -1,4 +1,3 @@
-
 import os
 import joblib
 import numpy as np
@@ -28,7 +27,6 @@ def predict_multiple_identities(image, model_components):
         pca = model_components['pca']
         scaler = model_components['scaler']
         classifier = model_components['classifier']
-        subject_dict = model_components['subject_dict']
         
         # Load HaarCascade face detector
         face_cascade_path = cv2.data.haarcascades + 'haarcascade_frontalface_default.xml'
@@ -62,8 +60,8 @@ def predict_multiple_identities(image, model_components):
         # Process each detected face
         for i, (x, y, w, h) in enumerate(faces):
             # Add margin around the face (20% of face size)
-            margin_x = int(w * 0.2)
-            margin_y = int(h * 0.2)
+            margin_x = int(w * 0.0)
+            margin_y = int(h * 0.0)
             
             # Ensure coordinates are within image bounds
             x_start = max(0, x - margin_x)
@@ -89,8 +87,16 @@ def predict_multiple_identities(image, model_components):
             prediction = classifier.predict(img_pca)[0]
             confidence = classifier.decision_function(img_pca).max()
             
-            # Get subject name
-            subject_name = subject_dict.get(prediction, f"Subject {prediction+1}")
+            # Get subject name based on prediction ID
+            # For the last three subjects (5, 6, 7 assuming 0-based indexing), use specified names
+            if prediction == 5:
+                subject_name = "Ahmed"
+            elif prediction == 6:
+                subject_name = "Salah"
+            elif prediction == 7:
+                subject_name = "Sayed"
+            else:
+                subject_name = f"Subject {prediction+1}"
             
             # Store result for this face
             face_result = {
@@ -119,7 +125,7 @@ def predict_multiple_identities(image, model_components):
                         (255, 255, 255),  # White color
                         1)  
         
-        return results , img_with_results
+        return results, img_with_results
     
     except Exception as e:
         print(f"Error processing image: {e}")
