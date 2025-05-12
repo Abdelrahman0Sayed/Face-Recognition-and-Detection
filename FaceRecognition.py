@@ -15,6 +15,7 @@ class FaceRecognition:
 
     def setup_subscriptions(self):
         pub.subscribe(self.on_apply_recognition, Topics.APPLY_RECOGNITION)
+        pub.subscribe(self.view_roc, Topics.SHOW_ROC_RECOGNITION)
 
     def on_apply_detection(self, image):
         logging.info(f"Applying Face Recognition on the image")
@@ -27,3 +28,6 @@ class FaceRecognition:
         results , image_with_faces=  predict_multiple_identities(image, self.model)
         pub.sendMessage(Topics.FACE_RECOGNITION_COMPLETED, image_data=image_with_faces)
 
+    def view_roc(self):
+        # Aya, Write your implementation here
+        pass
