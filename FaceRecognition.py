@@ -6,10 +6,12 @@ import time
 import cv2
 import numpy as np
 import logging
-
+from FaceDetection import FaceDetection
+from model import predict_multiple_identities, load_model
 class FaceRecognition:
     def __init__(self):
         self.setup_subscriptions()
+        self.model = load_model()
 
     def setup_subscriptions(self):
         pub.subscribe(self.on_apply_recognition, Topics.APPLY_RECOGNITION)
@@ -22,5 +24,6 @@ class FaceRecognition:
         loop.run_in_executor(executor, self.on_apply_recognition, image)
 
     def on_apply_recognition(self, image):
-        pass
+        results , image_with_faces=  predict_multiple_identities(image, self.model)
+        pub.sendMessage(Topics.FACE_RECOGNITION_COMPLETED, image_data=image_with_faces)
 

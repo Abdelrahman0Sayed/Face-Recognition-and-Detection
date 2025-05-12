@@ -193,7 +193,7 @@ QFrame {
        </font>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <property name="iconSize">
        <size>
@@ -371,6 +371,9 @@ QFrame {
              <property name="styleSheet">
               <string notr="true">background-color: #2a2a40;</string>
              </property>
+             <property name="verticalScrollBarPolicy">
+              <enum>Qt::ScrollBarAlwaysOff</enum>
+             </property>
              <property name="widgetResizable">
               <bool>true</bool>
              </property>
@@ -379,8 +382,8 @@ QFrame {
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>1058</width>
-                <height>531</height>
+                <width>1054</width>
+                <height>496</height>
                </rect>
               </property>
               <layout class="QVBoxLayout" name="verticalLayout_6">
@@ -625,6 +628,9 @@ border: 1px solid #3d3d5c;</string>
              <property name="styleSheet">
               <string notr="true">background-color: #2a2a40;</string>
              </property>
+             <property name="verticalScrollBarPolicy">
+              <enum>Qt::ScrollBarAlwaysOff</enum>
+             </property>
              <property name="widgetResizable">
               <bool>true</bool>
              </property>
@@ -633,8 +639,8 @@ border: 1px solid #3d3d5c;</string>
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>1058</width>
-                <height>531</height>
+                <width>1054</width>
+                <height>496</height>
                </rect>
               </property>
               <layout class="QVBoxLayout" name="verticalLayout_7">
@@ -731,7 +737,7 @@ border: 1px solid #3d3d5c;</string>
      <x>0</x>
      <y>0</y>
      <width>1154</width>
-     <height>28</height>
+     <height>34</height>
     </rect>
    </property>
    <property name="font">

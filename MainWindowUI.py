@@ -261,7 +261,7 @@ class MainWindowUI(QMainWindow):
     def display_recognition_results(self, image_data):
         try:
             if image_data is not None:
-                self.display_image(self.labelRecognitionResults, image_data)
+                self.display_image(self.imageDisplayRecognition, image_data)
                 logging.info("Recognition results displayed successfully")
                 pub.sendMessage(Topics.UPDATE_STATUS_BAR,
                                 message="Recognition results updated",
